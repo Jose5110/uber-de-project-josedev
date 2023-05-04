@@ -15,14 +15,12 @@ def export_data_to_big_query(data, **kwargs) -> None:
     Specify your configuration settings in 'io_config.yaml'.
 
     Docs: https://docs.mage.ai/design/data-loading#bigquery
-
-    
     """
     config_path = path.join(get_repo_path(), 'io_config.yaml')
     config_profile = 'default'
 
     for key, value in data.items():
-        table_id = 'data-with-darshil.uber_data_engineering_yt.{}'.format(key)
+        table_id = 'fit-heaven-385515.uber_data_engineering.{}'.format(key)
         BigQuery.with_config(ConfigFileLoader(config_path, config_profile)).export(
             DataFrame(value),
             table_id,
